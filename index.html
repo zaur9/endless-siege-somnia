@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Siege - Tower Defense</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Endless Siege</h1>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Золото:</span>
+                    <span id="gold" class="stat-value">200</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Здоровье базы:</span>
+                    <span id="base-health" class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Волна:</span>
+                    <span id="wave-number" class="stat-value">1</span>
+                </div>
+            </div>
+            <div class="game-controls">
+                <button id="pause-btn" class="control-btn">Пауза</button>
+                <button id="start-wave-btn" class="control-btn">Начать волну</button>
+            </div>
+        </header>
+
+        <div class="game-main">
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+            </div>
+            
+            <div class="tower-panel">
+                <h3>Башни</h3>
+                <div class="tower-buttons">
+                    <div class="tower-button" data-tower="basic">
+                        <div class="tower-icon basic-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">Базовая</div>
+                            <div class="tower-stats">
+                                <div>Урон: 20</div>
+                                <div>Дальность: 80</div>
+                                <div class="tower-cost">Цена: 50</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tower-button" data-tower="frost">
+                        <div class="tower-icon frost-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">Ледяная</div>
+                            <div class="tower-stats">
+                                <div>Урон: 15</div>
+                                <div>Дальность: 70</div>
+                                <div>Замедление</div>
+                                <div class="tower-cost">Цена: 75</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tower-button" data-tower="cannon">
+                        <div class="tower-icon cannon-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">Пушка</div>
+                            <div class="tower-stats">
+                                <div>Урон: 35 (AoE)</div>
+                                <div>Дальность: 90</div>
+                                <div class="tower-cost">Цена: 100</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="selected-tower-info">
+                    <h4>Выбранная башня</h4>
+                    <div id="selected-tower-details">Выберите башню для размещения</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wave-info">
+            <div class="wave-progress">
+                <div class="progress-bar">
+                    <div id="wave-progress" class="progress-fill"></div>
+                </div>
+                <div class="wave-text">
+                    <span id="wave-status">Готов к следующей волне</span>
+                    <span id="wave-timer">30s</span>
+                </div>
+            </div>
+            <div class="enemy-preview">
+                <span>Враги в волне:</span>
+                <div id="enemy-types" class="enemy-icons"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Scripts -->
+    <script src="js/entities/projectile.js"></script>
+    <script src="js/entities/enemy.js"></script>
+    <script src="js/entities/tower.js"></script>
+    <script src="js/systems/gridSystem.js"></script>
+    <script src="js/systems/resourceManager.js"></script>
+    <script src="js/systems/waveManager.js"></script>
+    <script src="js/ui/gameUI.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
