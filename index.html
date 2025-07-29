@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Siege - Tower Defense</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <header>
+            <h1>Endless Siege</h1>
+        </header>
+        
+        <div id="gameArea">
+            <div id="gameInfo">
+                <div class="info-panel">
+                    <div class="resource-display">
+                        <span class="resource-label">Gold:</span>
+                        <span id="goldAmount">100</span>
+                    </div>
+                    <div class="resource-display">
+                        <span class="resource-label">Lives:</span>
+                        <span id="livesAmount">20</span>
+                    </div>
+                    <div class="resource-display">
+                        <span class="resource-label">Wave:</span>
+                        <span id="waveNumber">1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div id="buildPanel">
+                <h3>Build Towers</h3>
+                <div class="tower-buttons">
+                    <button class="tower-btn" data-tower-type="basic" data-cost="25">
+                        <div class="tower-icon basic-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">Basic Tower</div>
+                            <div class="tower-cost">Cost: 25</div>
+                        </div>
+                    </button>
+                    <button class="tower-btn" data-tower-type="slow" data-cost="40">
+                        <div class="tower-icon slow-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">Slow Tower</div>
+                            <div class="tower-cost">Cost: 40</div>
+                        </div>
+                    </button>
+                    <button class="tower-btn" data-tower-type="aoe" data-cost="60">
+                        <div class="tower-icon aoe-tower"></div>
+                        <div class="tower-info">
+                            <div class="tower-name">AoE Tower</div>
+                            <div class="tower-cost">Cost: 60</div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div id="gameControls">
+                    <button id="startWaveBtn">Start Wave</button>
+                    <button id="pauseBtn">Pause</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="gameOverScreen" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="gameOverTitle">Game Over</h2>
+                <p id="gameOverMessage">Your base has been destroyed!</p>
+                <div class="final-stats">
+                    <p>Waves Survived: <span id="finalWaves">0</span></p>
+                    <p>Enemies Killed: <span id="finalKills">0</span></p>
+                </div>
+                <button id="restartBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Scripts -->
+    <script src="js/entities/enemy.js"></script>
+    <script src="js/entities/tower.js"></script>
+    <script src="js/entities/projectile.js"></script>
+    <script src="js/systems/gridSystem.js"></script>
+    <script src="js/systems/waveManager.js"></script>
+    <script src="js/systems/resourceManager.js"></script>
+    <script src="js/ui/gameUI.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
